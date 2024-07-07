@@ -1,3 +1,9 @@
 .logo {
     height: 5rem;
 }
+
+.banner {
+    height: 20rem;
+    width: 100vw;
+    object-fit: cover;
+}
