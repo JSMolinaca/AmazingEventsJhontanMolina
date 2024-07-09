@@ -23,3 +23,8 @@
 #card-one {
     width: 17rem;
 }
+
+.table-custom td,
+.table-custom th {
+    border: 1px solid black;
+}
