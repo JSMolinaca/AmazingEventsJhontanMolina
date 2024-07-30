@@ -201,7 +201,7 @@ function parseFecha(fechaStr) {
   return new Date(fechaStr);
 }
 
-function crearTarjetaEvento(evento) {
+function crearTarjeta(evento) {
   return `
     <div class="col">
       <div class="card h-100 bg-dark text-white d-flex flex-column">
@@ -219,9 +219,9 @@ function crearTarjetaEvento(evento) {
   `;
 }
 
-function mostrarEventos(eventos, contenedorId) {
+function pintar(eventos, contenedorId) {
   const contenedor = document.getElementById(contenedorId);
   if (contenedor) {
-    contenedor.innerHTML = eventos.map(crearTarjetaEvento).join('');
+    contenedor.innerHTML = eventos.map(crearTarjeta).join('');
   }
 }
