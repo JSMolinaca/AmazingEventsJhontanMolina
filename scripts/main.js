@@ -194,16 +194,16 @@ const data = {
       },
     ],
   };
-
-  const hoy = Date(data.currentDate);
   
-  function parseFecha(fechaStr) {
-    return new Date(fechaStr);
-  }
+const hoy = new Date(data.currentDate);
 
-  function crearTarjeta(evento) {
-    return `
-        <div class="col">
+function parseFecha(fechaStr) {
+  return new Date(fechaStr);
+}
+
+function crearTarjetaEvento(evento) {
+  return `
+    <div class="col">
       <div class="card h-100 bg-dark text-white d-flex flex-column">
         <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
         <div class="card-body d-flex flex-column">
@@ -216,12 +216,12 @@ const data = {
         </div>
       </div>
     </div>
-    `;
-  }
+  `;
+}
 
-  function pintar (eventos, contenedorId) {
-    const contenedor = document.getElementById(contenedorId);
-    if (contenedor) {
-        contenedor.innerHTML = eventos.map(crearTarjeta).join('');
-    }
+function mostrarEventos(eventos, contenedorId) {
+  const contenedor = document.getElementById(contenedorId);
+  if (contenedor) {
+    contenedor.innerHTML = eventos.map(crearTarjetaEvento).join('');
   }
+}

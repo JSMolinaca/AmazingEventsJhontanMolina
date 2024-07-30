@@ -1,3 +1,3 @@
 document.addEventListener('DOMContentLoaded', () => {
-    pintar(data.events, 'eventos-container');
+    mostrarEventos(data.events, 'eventos-container');
 });
