@@ -200,3 +200,28 @@ const data = {
   function parseFecha(fechaStr) {
     return new Date(fechaStr);
   }
+
+  function crearTarjeta(evento) {
+    return `
+        <div class="col">
+      <div class="card h-100 bg-dark text-white d-flex flex-column">
+        <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${evento.name}</h5>
+          <p class="card-text">${evento.description}</p>
+          <div class="mt-auto">
+            <a href="#">$${evento.price}</a>
+            <a href="./pages/details.html?id=${evento._id}" class="btn btn-primary">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+  }
+
+  function pintar (eventos, contenedorId) {
+    const contenedor = document.getElementById(contenedorId);
+    if (contenedor) {
+        contenedor.innerHTML = eventos.map(crearTarjeta).join('');
+    }
+  }
