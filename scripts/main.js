@@ -194,3 +194,9 @@ const data = {
       },
     ],
   };
+
+  const hoy = Date(data.currentDate);
+  
+  function parseFecha(fechaStr) {
+    return new Date(fechaStr);
+  }
