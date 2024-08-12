@@ -203,8 +203,8 @@ function parseFecha(fechaStr) {
 
 function crearTarjeta(evento) {
   return `
-    <div class="col">
-      <div class="card h-100 bg-dark text-white d-flex flex-column">
+    <div class="col ${evento.category}">
+      <div class="cards h-100 bg-dark text-white d-flex flex-column">
         <img src="${evento.image}" class="card-img-top" alt="${evento.name}">
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">${evento.name}</h5>
