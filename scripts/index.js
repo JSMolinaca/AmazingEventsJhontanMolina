@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const eventosContainer = document.getElementById('eventos-container');
     pintar(data.events, 'eventos-container');
 
     const checkboxes = document.querySelectorAll('.category-filter');
@@ -17,8 +18,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return matchesCategory && matchesSearch;
         });
 
-        // Vuelve a pintar con los eventos filtrados
-        pintar(filteredEvents, 'eventos-container');
+        eventosContainer.innerHTML = '';
+
+        if (filteredEvents.length > 0) {
+            pintar(filteredEvents, 'eventos-container');
+        } else {
+            eventosContainer.innerHTML = '<div class="text-center">Your search had no matches.</div>';
+        }
+
     }
 
     checkboxes.forEach(checkbox => {
