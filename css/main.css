@@ -28,3 +28,16 @@
 .table-custom th {
     border: 1px solid black;
 }
+
+.colorbordetabla {
+    border-style: solid;
+    border-color: black;
+  }
+  
+  .titulotabla {
+    background-color: rgb(218, 165, 165);
+  }
+
+.card {
+    width: 100%;
+}

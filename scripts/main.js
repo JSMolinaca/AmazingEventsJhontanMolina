@@ -211,7 +211,7 @@ function crearTarjeta(evento) {
           <p class="card-text">${evento.description}</p>
           <div class="mt-auto">
             <a href="#">$${evento.price}</a>
-            <a href="./pages/details.html?id=${evento._id}" class="btn btn-primary">Details</a>
+            <a href="../pages/details.html?id=${evento._id}" class="btn btn-primary">Details</a>
           </div>
         </div>
       </div>
