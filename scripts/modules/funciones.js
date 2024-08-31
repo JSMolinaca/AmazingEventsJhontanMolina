@@ -60,3 +60,4 @@ export function encontrarEventoMayorAsistencia(eventos) {
     }
     return eventoConMayorAsistencia;
 }
+
