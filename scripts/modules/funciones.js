@@ -47,7 +47,7 @@ export function filtrarPorCategoria(array) {
     return checkedValues.length > 0 ? array.filter(elemento => checkedValues.includes(elemento.category)) : array
 }
 
-//Funcion para encontrar evento con mayor assitencia
+//Funcion para encontrar evento con mayor asitencia
 export function encontrarEventoMayorAsistencia(eventos) {
     let mayorPorcentajeAsistencia = 0;
     let eventoConMayorAsistencia = null;
@@ -61,3 +61,53 @@ export function encontrarEventoMayorAsistencia(eventos) {
     return eventoConMayorAsistencia;
 }
 
+//Funcion para encontrar evento con menor asistencia
+export function encontrarEventoMenorAsistencia(eventos) {
+    let menorPorcentajeAsistencia = Infinity;
+    let eventosconMenorAsistencia = null;
+
+    for (let i = 0; i < eventos.length; i++) {
+        const porcenjeAsistencia = ((eventos[i].assistance || eventos[i].estimate) / eventos[i].capacity) * 100;
+        if (porcentajeAsistencia < menorPorcentajeAsistencia) {
+            menorPorcentajeAsistencia = porcenjeAsistencia;
+            eventosconMenorAsistencia = eventos[i];
+        }
+        return eventosconMenorAsistencia;
+    }
+}
+
+//Funcion para encontrar el valor maximo dentro de un array, utilizando find y Math.max, para encontrar el valor maximo
+export function stats(datos) {
+    const resultado = datos.reduce((resultado, dato) => {
+        const categoria = dato.category
+        //Si en la categoria no existe el objeto resultado, agregarla en 0
+        if (!resultado.categorias.includes(categoria)) {
+            resultado.categorias.push(categoria)
+            resultado.ganancias[categoria] = 0
+            resultado.attendance[categoria] = 0
+            resultado.capacidad[categoria] = 0
+        }
+        const attendances = dato.assistance ?? dato.estimate
+        //Agregamos la cantidad de ganancias, asistencia y capacidad a la categoria correspondiente
+        resultado.ganancias[categoria] += dato.price * attendances
+        resultado.attendance[categoria] += attendances
+        resultado.capacidad[categoria] += dato.capacity
+
+        return resultado
+    }, { categorias: [], ganancias: {}, porcentajes: {}, attendance: {}, capacidad: {} })   
+}
+
+//Funcion para pintar la tabla stats
+export function pintarFilas(dato, contenedor) {
+    let filas = ''
+    dato.categorias.forEach(categoria => {
+        filas += 
+        `
+        <tr>
+        <td>${categoria}</td>
+        <td>$ ${dato.ganancias[categoria].toFixed(2)}</td>
+        <td>${dato.porcentajes[categoria].toFixed(2)} %</td>
+        `
+    })
+    contenedor.innerHTML = filas
+}
