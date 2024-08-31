@@ -29,4 +29,34 @@ export function pintarTarjetas(array) {
 
         fragment.appendChild(card)
     });
+
+    conetendor.innerHTML = ''
+    conetendor.appendChild(fragment)
+}
+
+//Funcion para buscar el texto ingresado en el search
+export function filtrarPorTexto(array, texto) {
+    let arrayFiltrado = array.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
+    return arrayFiltrado
+}
+[]
+//Funcion para filtrar por categoria seleccionada
+export function filtrarPorCategoria(array) {
+    const checkboxes = document.querySelectorAll("input[type='checkbox']:checked")
+    const checkedValues = Array.form(checkboxes).map(checkbox => checkbox.value)
+    return checkedValues.length > 0 ? array.filter(elemento => checkedValues.includes(elemento.category)) : array
+}
+
+//Funcion para encontrar evento con mayor assitencia
+export function encontrarEventoMayorAsistencia(eventos) {
+    let mayorPorcentajeAsistencia = 0;
+    let eventoConMayorAsistencia = null;
+    for (let i = 0; i < eventos.length; i++) {
+        const porcentajeAsitenciaActual = ((eventos[i].assistance || eventos[i].estimate) / eventos[i].capacity) * 100;
+        if (porcentajeAsistenciaActual > mayorPorcentajeAsistencia) {
+            mayorPorcentajeAsistencia = porcentajeAsitenciaActual;
+            eventoConMayorAsistencia = eventos[i];
+        }
+    }
+    return eventoConMayorAsistencia;
 }
