@@ -48,35 +48,41 @@ export function filtrarPorCategoria(array) {
 }
 
 //Funcion para encontrar evento con mayor asitencia
-export function encontrarEventoMayorAsistencia(eventos) {
-    let mayorPorcentajeAsistencia = 0;
-    let eventoConMayorAsistencia = null;
-    for (let i = 0; i < eventos.length; i++) {
-        const porcentajeAsitenciaActual = ((eventos[i].assistance || eventos[i].estimate) / eventos[i].capacity) * 100;
-        if (porcentajeAsistenciaActual > mayorPorcentajeAsistencia) {
-            mayorPorcentajeAsistencia = porcentajeAsitenciaActual;
-            eventoConMayorAsistencia = eventos[i];
+export function highestAttendancePercentage(evento) {
+    let highestAttendancePercentage = 0
+    let eventWithHighestAttendancePercentage = null;
+    for (let i = 0; i < evento.length; i++) {
+        const attendancePercentage = ((evento[i].assistance || evento[i].estimate) / evento[i].capacity) * 100
+        if (attendancePercentage > highestAttendancePercentage) {
+            highestAttendancePercentage = attendancePercentage
+            eventWithHighestAttendancePercentage = evento[i];
         }
     }
-    return eventoConMayorAsistencia;
+    return eventWithHighestAttendancePercentage
 }
 
 //Funcion para encontrar evento con menor asistencia
-export function encontrarEventoMenorAsistencia(eventos) {
-    let menorPorcentajeAsistencia = Infinity;
-    let eventosconMenorAsistencia = null;
-
-    for (let i = 0; i < eventos.length; i++) {
-        const porcenjeAsistencia = ((eventos[i].assistance || eventos[i].estimate) / eventos[i].capacity) * 100;
-        if (porcentajeAsistencia < menorPorcentajeAsistencia) {
-            menorPorcentajeAsistencia = porcenjeAsistencia;
-            eventosconMenorAsistencia = eventos[i];
+export function lowestAssistancePercentage(evento) {
+    let lowestAssistancePercentage = Infinity
+    let eventWithLowestAttendancePercentage = null
+    for (let i = 0; i < evento.length; i++) {
+        const assistancePercentage = ((evento[i].assistance || evento[i].estimate) / evento[i].capacity) * 100
+        if (assistancePercentage < lowestAssistancePercentage) {
+            lowestAssistancePercentage = assistancePercentage
+            eventWithLowestAttendancePercentage = evento[i]
         }
-        return eventosconMenorAsistencia;
     }
+    return eventWithLowestAttendancePercentage;
 }
 
-//Funcion para encontrar el valor maximo dentro de un array, utilizando find y Math.max, para encontrar el valor maximo
+//Funcion para encontrar el valor maximo dentro de un array, utilizando find y Math.max, para encontrar el valor maximo del array
+export function findMaxCapacityEvent(evento) {
+    return evento.find(event => event.capacity === Math.max(...evento.map(event => event.capacity)))
+}
+
+
+
+
 export function stats(datos) {
     const resultado = datos.reduce((resultado, dato) => {
         const categoria = dato.category
