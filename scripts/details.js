@@ -1,9 +1,9 @@
 let arrayResults
-let Url = './modules/dataApi.js';
+let Url = '../json/amazing.json';
 
 fetch(Url)
-    .then((response) => response.js())
-    -then(results => {
+    .then((response) => response.json())
+    .then(results => {
 
         arrayResults = results
 

@@ -1,15 +1,15 @@
-import { pintarTarjetas, filtrarPorTexto, filtrarPorCategoria, crearCheckBoxex } from "./modules/funciones";
+import { pintarTarjetas, filtrarPorTexto, filtrarPorCategoria, crearCheckBoxex } from "./funciones";
 
 //Llamar al html, la estructura, buscar || agregar
 const input = document.querySelector('input')
 const contenedorCheck = document.getElementById('checkContainer')
 
 let arrayResults
-let Url = './modules/dataApi.js'
+let Url = '../json/amazing.json';
 
 //Utilizamos Fetch para traer la Url y .then obtener los datos de la Api
 fetch(Url)
-  .then((response) => response.js())
+  .then((response) => response.json())
   .then(results => {
 
     arrayResults = results
