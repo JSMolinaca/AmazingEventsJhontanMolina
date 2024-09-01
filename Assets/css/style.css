@@ -1,0 +1,136 @@
+body {
+  background-color: #fae3ea;
+  display: flex;
+  flex-wrap: nowrap;
+  align-content: space-between;
+  justify-content: space-around;
+  align-items: stretch;
+  flex-direction: column;
+  min-height: 120vh;
+}
+
+.menu1 {
+  position: relative;
+  right: 0px;
+  padding-left: 50%;
+}
+
+ul {
+  display: flex;
+  align-items: center;
+}
+
+li {
+  padding: 0px;
+}
+
+.nav-link:hover {
+  background-color: #fd004c;
+  color: #FFFFFF!important;
+}
+
+.nav-link:active {
+  background-color: #fd004c!important;
+  color: #FFFFFF;
+}
+
+.img-banner {
+  height: 20rem;
+  object-fit: cover;
+}
+
+.degradadotop {
+  background: rgb(250, 227, 234);
+  background: linear-gradient(0deg,
+      rgba(250, 227, 234, 0.3786) 0%,
+      rgb(216, 133, 133) 90%)
+}
+
+.color-text {
+  color: #FFFFFF;
+  font-weight: 480;
+}
+
+.form-check-input {
+  cursor: pointer;
+}
+
+.form-check-input:checked {
+  background-color: #e53935;
+  border: #e53935!important;
+}
+
+.card {
+  padding-bottom: 0rem !important;
+  background-color: #ffeaf1 !important;
+}
+
+.cajafotos {
+  width: 16rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.card-body {
+  margin: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bg-rosa {
+  background-color: #e5737d;
+  color: #FFFFFF;
+  font-weight: bold;
+  border: 1px solid #e77296;
+}
+
+.bg-rosa:hover {
+  background-color: #fd004c;
+  border: 1px solid #ffabc6;
+}
+
+.bg-rosa:active {
+  background-color: #e5737d!important;
+  border: 1px solid #e5737d!important;
+}
+
+.degradadofooter {
+  background: rgb(231, 114, 150);
+  background: linear-gradient(0deg,
+      rgba(172, 88, 88) 0%,
+      rgb(250, 227, 234, 0.3786) 90%)
+}
+footer {
+  margin-top: auto;
+}
+
+/* Estilos archivo stats */
+.colorbordetabla {
+  border-style: solid;
+  border-color: black;
+}
+
+.titulotabla {
+  background-color: #fd004c;
+  color: #FFFFFF;
+}
+
+
+/* Estilos archivo contact */
+.bg-color-send {
+  background-color: #fd004c;
+  border: #e53935 ;
+}
+
+.bg-color-send:active {
+  background-color: #fd004c!important;
+}
+
+.bg-color-send:hover {
+  background-color: #e53935;
+}
