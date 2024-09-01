@@ -1,36 +1,40 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const eventosContainer = document.getElementById('eventos-container');
-    pintar(data.events, 'eventos-container');
+import { pintarTarjetas, filtrarPorTexto, filtrarPorCategoria, crearCheckBoxex } from "./modules/funciones.js";
 
-    const checkboxes = document.querySelectorAll('.category-filter');
-    const searchBar = document.getElementById('search-bar');
+//Llamar al html, la estructura, buscar || agregar
+const input = document.querySelector('input')
+const contenedorCheck = document.getElementById('checkContainer')
 
-    function filterCards() {
-        const selectedCategories = Array.from(checkboxes)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.value);
 
-        const searchTerm = searchBar.value.toLowerCase();
+let arrayResults
+const Url = './modules/dataApi.js'
 
-        const filteredEvents = data.events.filter(event => {
-            const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(event.category);
-            const matchesSearch = event.name.toLowerCase().includes(searchTerm) || event.description.toLowerCase().includes(searchTerm);
-            return matchesCategory && matchesSearch;
-        });
+//Utilizamos Fetch para traer la Url y .then obtener los datos de la Api
 
-        eventosContainer.innerHTML = '';
+fetch(Url)
+    .then((response) => response.js())
+    .then(results => {
 
-        if (filteredEvents.length > 0) {
-            pintar(filteredEvents, 'eventos-container');
-        } else {
-            eventosContainer.innerHTML = '<div class="text-center">Your search had no matches.</div>';
+        arrayResults = results
+
+        //Llamar constantes de un modo mas facil
+        const events = arrayResults.events
+        const currentDate = arrayResults.CurrentDate
+
+        //Llamado a las funciones
+        pintarTarjetas(events);
+        crearCheckBoxex(events)
+        superFiltro()
+
+        //Este vento recibe lo del input del search
+        input.addEventListener('input', superFiltro)
+
+        //Verifica si hay cambio en algun check
+        contenedorCheck.addEventListener('change', superFiltro)
+
+        //Funcion permite filtrar por checks y search para pintar las tarjetas
+        function superFiltro() {
+            let primerFiltro = filtrarPorTexto(events, input.value)
+            let segundoFiltro = filtrarPorCategoria(primerFiltro)
+            pintarTarjetas(segundoFiltro)
         }
-
-    }
-
-    checkboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', filterCards);
     });
-
-    searchBar.addEventListener('input', filterCards);
-});
