@@ -1,4 +1,4 @@
-const conetendor = document.getElementById('eventos-container')
+dconst conetendor = document.getElementById('eventos-container')
 
 export function pintarTarjetas(array) {
     const fragment = document.createDocumentFragment();
@@ -110,4 +110,19 @@ export function pintarFilas(dato, contenedor) {
         `
     })
     contenedor.innerHTML = filas
+}
+
+//Funcion para los checkboxes 
+export function crearCheckBoxex(array) {
+    let arrayCategorys = array.map(tarjeta => tarjeta.cateogory)
+    let setCategory = new Set(arrayCategorys)
+    let arrayChecks = Array.from(setCategory)
+    let checkboxes = ''
+    arrayChecks.forEach(category => {
+        checkboxes += `<div class="form-check me-4">
+                    <input class="form-check-input" type="checkbox" id="${cateogory}" value="${category}>
+                    <label class="form-check-label" for="${category}">${category}</label>
+                    </div>`
+    })
+    contenedorCheck.innerHTML = checkboxes
 }
