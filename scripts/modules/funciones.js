@@ -1,4 +1,4 @@
-dconst conetendor = document.getElementById('eventos-container')
+const conetendor = document.getElementById('eventos-container')
 
 export function pintarTarjetas(array) {
     const fragment = document.createDocumentFragment();

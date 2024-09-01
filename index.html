@@ -13,110 +13,77 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid justify-content-between">
-                <a class="navbar-brand" href="./index.html"><img class="logo img-fluid" src="./img/amazing_brand.png"
-                        alt=""></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="./index.html">
+                    <img
+                        src="./img/amazing_brand.png"
+                        alt="Logo AmazingEvents"
+                        width="150"
+                        height="24"
+                        class="img-flud"
+                    />
+                </a>
+                <button
+                    class="navbar-toggler boton"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#botonesdebarra"
+                    aria-controls="botonesdebarra" 
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                <div class="collapse navbar-collapse menu1" id="botonesdebarra">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
+                            <a 
+                            class="nav-link active btn botoncolor m-2 text-nowrap"
+                            aria-current="page"
+                            href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./upcomingEvents.html">Upcoming Events</a>
+                            <a
+                            class="nav-link btn m-2 text-nowrap"
+                            href="./upcomingEvents.html">Upcoming Events</a>
+                        </li>>
+                        <li class="nav-item">
+                            <a
+                            class="nav-link btn m-2 text-nowrap"
+                            href="./pastEvents.html">Past Events</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./pastEvents.html">Past Events</a>
+                            <a
+                            class="nav-link btn m-2 text-nowrap"
+                            href="./contact.html">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./stats.html">Stats</a>
+                            <a
+                            class="nav-link btn m-2 text-nowrap"
+                            href="./stats.html">Stats</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    </header>
-    <main class="text-black">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="banner" src="./img/optional_banner_1.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img class="banner" src="./img/optional_banner_2.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img class="banner" src="./img/optional_banner_3.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img class="banner" src="./img/optional_banner_4.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img class="banner" src="./img/optional_banner_5.jpg" class="d-block w-100" alt="...">
-                </div>
+        <div class="container-fluid nav2 colorslide">
+            <div>
+                <a href="./stats.html" class="previus round"><i class="fa-sharp fa-solid fa-less-than"></i></a>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <h2>HOME</h2>
+            <div>
+                <a href="./upcomingEvents.html" class="next round"><i class="fa-sharp fa-solid fa-greater-than"></i></a>
+            </div>
         </div>
-        <form class="d-flex flex-column flex-md-row justify-content-between m-3" role="search">
-            <div class="d-flex flex-column flex-md-row">
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Food Fair"> Food
-                </label>
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Museum"> Museum
-                </label>
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Music Concert"> Concert
-                </label>
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Race"> Race
-                </label>
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Book Exchange"> Books
-                </label>
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Cinema"> Cinema
-                </label>
-                <label class="d-flex align-items-center m-2" for="">
-                    <input class="category-filter m-2" type="checkbox" value="Costume Party"> Party
-                </label>
-            </div>
-            <div class="d-flex gap-2">
-                <input class="form-control me-2" id="search-bar" |type="search" placeholder="Search"
-                    aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </div>
-        </form>
-        <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-7 g-4" id="eventos-container">
-                <!-- Tarjetas de eventos dinámicas se insertarán aquí -->
-            </div>
+    </header>
+    <main>
+        <div class="container mt-3">
+            <nav class="navbar navbar-expand-lg degradadotop">
+                
+            </nav>
+
         </div>
     </main>
-    <footer class="d-flex justify-content-between align-items-center p-3 ">
-        <div p-3>
-            <a href=""><img class="redes" src="./img/facebook.png" alt=""></a>
-            <a href=""><img class="redes" src="./img/whatsapp.png" alt=""></a>
-            <a href=""><img class="redes" src="./img/instagram.png" alt=""></a>
-        </div>
-        <span>Cohort 5</span>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
